@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "hashmap.h"
+#include <stdint.h>
 
 int main() {
   hashmap* someMap = create_hashmap();
@@ -17,6 +18,9 @@ int main() {
   printf("%d\n", *(int*)result);
   printf("%s\n", *(char**)result2);
 
+  size_t size_of_hashmap = hashmap_size(someMap);
+  printf("The size of this hashmap is %ld\n", size_of_hashmap);
+
   destroy_hashmap(someMap);
   printf("hashmap was destroyed\n");
 
@@ -28,6 +32,7 @@ int main() {
 hashmap was created
 1
 boop
+The size of this hashmap is 2
 hashmap was destroyed
 
 */
