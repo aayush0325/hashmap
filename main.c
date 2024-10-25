@@ -21,6 +21,13 @@ int main() {
   size_t size_of_hashmap = hashmap_size(someMap);
   printf("The size of this hashmap is %ld\n", size_of_hashmap);
 
+  delete_from_hashmap(someMap, "foo");
+  size_of_hashmap = hashmap_size(someMap);
+  
+  if(size_of_hashmap == 1){
+    printf("The element was deleted successfully\n");
+  }
+
   destroy_hashmap(someMap);
   printf("hashmap was destroyed\n");
 
@@ -33,6 +40,7 @@ hashmap was created
 1
 boop
 The size of this hashmap is 2
+The element was deleted successfully
 hashmap was destroyed
 
 */

@@ -17,4 +17,6 @@ const char* hashmap_set(hashmap* map, const char* key, void* value);
 
 size_t hashmap_size(hashmap* map);
 
+void delete_from_hashmap(hashmap* map, const char* key);
+
 #endif // HASHMAP_H

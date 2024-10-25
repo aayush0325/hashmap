@@ -137,3 +137,25 @@ const char* hashmap_set(hashmap* map, const char* key, void* value){
 size_t hashmap_size(hashmap* map){
   return map->length;
 }
+
+void delete_from_hashmap(hashmap* map, const char* key){
+  uint64_t hash = hash_key(key);
+  size_t index = hash & (map->capacity - 1);
+
+  while( map->entries[index].key != NULL ){
+    if( strcmp(map->entries[index].key , key) == 0 ){
+      free((void*) map->entries[index].key);
+      map->entries[index].key = NULL;
+      map->entries[index].value = NULL;
+      map->length--;
+      return;
+    }
+    index++;
+    if(index >= map->capacity){
+      index = 0;
+    }
+  }
+
+  //IF NOT FOUND
+  return;
+}
